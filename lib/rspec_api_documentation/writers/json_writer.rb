@@ -95,11 +95,13 @@ module RspecApiDocumentation
           :resource_explanation => resource_explanation,
           :http_method => http_method,
           :route => route,
+          :route_summary => respond_to?(:route_summary) ? route_summary : "",
           :description => description,
           :explanation => explanation,
           :parameters => respond_to?(:parameters) ? parameters : [],
           :response_fields => respond_to?(:response_fields) ? response_fields : [],
-          :requests => requests
+          :requests => requests,
+          :authentications => example.metadata[:authentications]
         }
       end
 
